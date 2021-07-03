@@ -33,12 +33,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Chapter1/Stage 1-8.unity
     guid: a65f0291659deb242a60e47e49797888
   - enabled: 1
-    path: Assets/Scenes/Chapter1/Stage 1-9.unity
-    guid: 5a625f4211438a549968ad8df8798ea3
-  - enabled: 1
-    path: Assets/Scenes/Chapter1/Stage 1-X.unity
-    guid: 455c47d5179872d44b053dac57ac8c7d
-  - enabled: 1
     path: Assets/Scenes/SubScenes/StageSelector.unity
     guid: 8bdc4de8febe65240a1224ec7c6481dd
   m_configObjects: {}

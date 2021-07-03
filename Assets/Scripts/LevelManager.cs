@@ -29,9 +29,4 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene(levelIndex);
     }
-
-    void Update()
-    {
-        
-    }
 }
