@@ -4,103 +4,67 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 6f;
-    public float jumpPower = 5f;
+    private Rigidbody2D rb;
 
-    Rigidbody2D rigid;
-    SpriteRenderer rend;
+    private float moveInput;
 
-    float horizontal;
+    public float speed;
+    public float jumpForce;
+    public float checkRadius;
 
-    bool isjumping;
+    //public float health = 10f;
 
-    public AudioSource jump;
+    public Transform feetPos;
 
-    private void Start()
+    public LayerMask whatIsGround;
+
+    private bool facingRight = true;
+    private bool isGround;
+    private bool isJumping;
+
+
+
+    // Start is called before the first frame update
+    void Start()
     {
-        rend = GetComponent<SpriteRenderer>();
-        rigid = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    void FixedUpdate()
     {
-        Jump();
-        Move();
+        moveInput = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    // Update is called once per frame
+    void Update()
     {
-        if (other.gameObject.CompareTag("Ground"))
+        isGround = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
+
+        if (isGround == true && Input.GetKeyDown(KeyCode.Space))
         {
-            isjumping = false;
+            isJumping = true;
+            rb.velocity = Vector2.up * jumpForce;
+            Debug.Log("Jump!");
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            isJumping = false;
         }
 
-        if (other.gameObject.tag == "JumpPad")
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            rigid.AddForce(Vector2.up * jumpPower * 1.5f, ForceMode2D.Impulse);
-            Debug.Log("Collide!");
+            rb.gravityScale = -rb.gravityScale;
         }
-    }
-
-    //void OncollisionEnter2D(Collision2D other)
-    //{
-    //    if (other.gameObject.tag == "JumpPad")
-    //    {
-    //        rigid.AddForce(Vector2.up * 10);
-    //    }
-    //}
-
-    void Jump() //점프
-    {
-        if(Input.GetButtonDown("Jump"))
-        {
-            if(isjumping == false)
-            {
-                rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-                isjumping = true;
-                jump.Play();
-            }
-        }
-    }
-
-    public void JumpMobile()
-    {
-        if (isjumping == false)
-        {
-            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            isjumping = true;
-            jump.Play();
-        }
-        //else return;
-    }
-
-    void Move() //플레이어 움직임
-    {
-        float axis = SimpleInput.GetAxisRaw("Horizontal");
-        //horizontal = SimpleInput.GetAxisRaw("Horizontal");
-        if (axis != 0)
-        {
-            if (axis > 0) //right
-            {
-                //rend.flipX = true;
-                transform.localScale = new Vector3(1, 1, 1);
-            }
-            else if(horizontal < 0) //left
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-                //rend.flipX = false;
-            }
-        }
-        rigid.velocity = new Vector2(moveSpeed * axis, rigid.velocity.y);
     }
 
     public void NoGravity()
     {
-        rigid.gravityScale = 0;
+        rb.gravityScale = 0;
     }
 
     public void GetGravity()
     {
-        rigid.gravityScale = 1;
+        rb.gravityScale = 1;
     }
 }

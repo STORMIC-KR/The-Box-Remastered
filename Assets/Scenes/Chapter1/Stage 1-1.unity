@@ -958,6 +958,7 @@ Transform:
   m_Children:
   - {fileID: 907788743}
   - {fileID: 1510128963}
+  - {fileID: 603382692}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1020,9 +1021,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9af98875ec2414094d75934a593a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
-  jumpPower: 6
-  jump: {fileID: 907788742}
+  speed: 5
+  jumpForce: 7
+  checkRadius: 0.3
+  feetPos: {fileID: 603382692}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &458772875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1348,6 +1353,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541050179}
   m_CullTransparentMesh: 0
+--- !u!1 &603382691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 603382692}
+  m_Layer: 0
+  m_Name: FeetPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &603382692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603382691}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 412445804}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &630567100
 GameObject:
   m_ObjectHideFlags: 0
@@ -3823,7 +3858,7 @@ GameObject:
   - component: {fileID: 1707798118}
   - component: {fileID: 1707798120}
   - component: {fileID: 1707798119}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorTileMap
   m_TagString: Ground
   m_Icon: {fileID: 0}

@@ -2703,6 +2703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd7fd28b2be82946ad7be9ca8d13764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _object: {fileID: 1103179461}
   quitPanel: {fileID: 1103179461}
 --- !u!1 &1970159897
 GameObject:

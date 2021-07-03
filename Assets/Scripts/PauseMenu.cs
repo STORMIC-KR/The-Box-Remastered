@@ -11,11 +11,17 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape)) //esc 누르면 일시정지 패널을 킴
         {
-            pausePanel.SetActive(true); //일시정지 패널을 켜라
+            TogglePause();
             Time.timeScale = 0;
             Debug.Log("loading PausePanel");
             //음악 정지 기능 넣을 예정
         }
+    }
+
+    void TogglePause()
+    {
+        bool currentState = pausePanel.activeSelf;
+        pausePanel.SetActive(!currentState);
     }
 
     public void LoadPauseMenu()

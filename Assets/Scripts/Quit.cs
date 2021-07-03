@@ -9,7 +9,13 @@ public class Quit : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            quitPanel.SetActive(true);
+            TogglePanel();
         }
+    }
+
+    void TogglePanel()
+    {
+        bool currentState = quitPanel.activeSelf;
+        quitPanel.SetActive(!currentState);
     }
 }
