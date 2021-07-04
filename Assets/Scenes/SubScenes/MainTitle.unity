@@ -2056,7 +2056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7263241412884160232, guid: 95da0a5c02f054543b53d5ef0d3384cc, type: 3}
       propertyPath: m_Volume
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95da0a5c02f054543b53d5ef0d3384cc, type: 3}
@@ -2703,7 +2703,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd7fd28b2be82946ad7be9ca8d13764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _object: {fileID: 1103179461}
   quitPanel: {fileID: 1103179461}
 --- !u!1 &1970159897
 GameObject:

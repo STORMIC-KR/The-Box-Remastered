@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public float checkRadius;
 
+    public AudioSource jumpAudio;
+    public AudioSource gravityAudio;
+
     //public float health = 10f;
 
     public Transform feetPos;
@@ -39,32 +42,24 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGround = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
+        //isGround = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
 
-        if (isGround == true && Input.GetKeyDown(KeyCode.Space))
-        {
-            isJumping = true;
-            rb.velocity = Vector2.up * jumpForce;
-            Debug.Log("Jump!");
-        }
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
-            isJumping = false;
-        }
+        //if (isGround == true && Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    isJumping = true;
+        //    rb.velocity = Vector2.up * jumpForce;
+        //    jumpAudio.Play();
+        //    Debug.Log("Jump!");
+        //}
+        //else if (Input.GetKeyUp(KeyCode.Space))
+        //{
+        //    isJumping = false;
+        //}
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
             rb.gravityScale = -rb.gravityScale;
+            gravityAudio.Play();
         }
-    }
-
-    public void NoGravity()
-    {
-        rb.gravityScale = 0;
-    }
-
-    public void GetGravity()
-    {
-        rb.gravityScale = 1;
     }
 }
