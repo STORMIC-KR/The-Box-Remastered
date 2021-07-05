@@ -3337,7 +3337,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c7ff058f6749442a1da05a79daa993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offObj: {fileID: 459131325}
+  offObj1: {fileID: 459131325}
+  offObj2: {fileID: 0}
   click: {fileID: 0}
 --- !u!1 &1310673613
 GameObject:
@@ -5152,7 +5153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc6c9108b26e93442a0fa66ce007e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pausePanel: {fileID: 0}
+  pausePanel: {fileID: 1642679704}
 --- !u!4 &2130372292
 Transform:
   m_ObjectHideFlags: 0

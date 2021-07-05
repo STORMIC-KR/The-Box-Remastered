@@ -9,17 +9,17 @@ public class PlayerMovement : MonoBehaviour
     private float moveInput;
 
     public float speed;
-    public float jumpForce;
-    public float checkRadius;
+    //public float jumpForce;
+    //public float checkRadius;
 
-    public AudioSource jumpAudio;
+    //public AudioSource jumpAudio;
     public AudioSource gravityAudio;
 
     //public float health = 10f;
 
-    public Transform feetPos;
+    //public Transform feetPos;
 
-    public LayerMask whatIsGround;
+    //public LayerMask whatIsGround;
 
     private bool facingRight = true;
     private bool isGround;
@@ -60,6 +60,19 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.gravityScale = -rb.gravityScale;
             gravityAudio.Play();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Portal1"))
+        {
+            GameObject.FindGameObjectWithTag("Portal1").GetComponent<Portal>().OnPortal1();
+        }
+
+        else if (other.CompareTag("Portal2"))
+        {
+            GameObject.FindGameObjectWithTag("Portal2").GetComponent<Portal>().OnPortal2();
         }
     }
 }

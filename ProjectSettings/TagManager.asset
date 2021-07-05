@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Enemy
   - Switch
+  - Portal1
+  - Portal2
   layers:
   - Default
   - TransparentFX
