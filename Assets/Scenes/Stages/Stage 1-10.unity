@@ -2541,7 +2541,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &239404722
 RectTransform:
@@ -4480,14 +4480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpForce: 7
-  checkRadius: 0.3
-  jumpAudio: {fileID: 658267446}
   gravityAudio: {fileID: 994468181}
-  feetPos: {fileID: 488886529}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!61 &1310143009
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5440,7 +5433,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &1630246112
 RectTransform:
